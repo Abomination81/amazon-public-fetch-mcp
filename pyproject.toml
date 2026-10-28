@@ -1,0 +1,38 @@
+[project]
+name = "amazon-public-fetch-mcp"
+version = "0.1.0"
+license = "MIT"
+description = "Minimal MCP server: fetch public Amazon pages from a residential IP (or proxy) for Grok Bot and other MCP clients."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.2.0,<2",
+    "httpx[http2]>=0.28.0",
+    "curl_cffi>=0.11.0,<1",
+    "brotli>=1.1.0",
+]
+
+[project.optional-dependencies]
+# Optional higher ladder rungs (install only if httpx/curl_cffi still get blocked).
+extra = [
+    "rnet>=2.4.2,<3",
+    "playwright>=1.49.0,<2",
+]
+
+[project.scripts]
+amazon-public-fetch = "mcp_server:main"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["amazon_public_fetch*"]
+
+[tool.setuptools]
+py-modules = ["mcp_server"]
+
+[project.urls]
+Homepage = "https://abomination81.com/amazon-public-fetch-mcp/"
+Repository = "https://github.com/Abomination81/amazon-public-fetch-mcp"
+Issues = "https://github.com/Abomination81/amazon-public-fetch-mcp/issues"

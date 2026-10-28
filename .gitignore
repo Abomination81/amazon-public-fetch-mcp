@@ -1,0 +1,20 @@
+# Local credentials and runtime state
+.env*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+*.log
+*.pem
+*.key
+*.p12
+cookies*.json
+storage-state*.json
+playwright-report/

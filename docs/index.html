@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#020704">
+  <meta name="description" content="Give Grok Bot a route through your PC. A local MCP connector for public Amazon product pages, using your network or your configured proxy. Built by Abomination81.">
+  <meta property="og:title" content="Amazon Public Fetch MCP · Abomination81">
+  <meta property="og:description" content="Your bot. Your PC. Amazon. Public product lookups through your own connection.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://abomination81.com/amazon-public-fetch-mcp/">
+  <meta property="og:image" content="https://abomination81.com/amazon-public-fetch-mcp/assets/abomination81.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@Abomination81">
+  <title>Amazon Public Fetch MCP · Built by Abomination81</title>
+  <link rel="canonical" href="https://abomination81.com/amazon-public-fetch-mcp/">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#install">Skip to installation</a>
+<div class="wrap">
+  <header class="masthead">
+    <a class="brand" href="https://abomination81.com/"><img src="assets/abomination81.jpg" width="42" height="42" alt=""><span>ABOMINATION<span class="green">81</span><small>TOOLS FROM THE LAB</small></span></a>
+    <nav aria-label="Main navigation"><a href="#route">The route</a><a href="#install">Install</a><a href="https://github.com/Abomination81/amazon-public-fetch-mcp">GitHub ↗</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot"></span> AMAZON PUBLIC FETCH / MCP</p>
+        <h1>Your bot.<br>Your PC.<br><span>Amazon.</span></h1>
+        <p class="lede">Give Grok Bot a route through your own computer. Fetch public Amazon product pages using your network or a proxy you configure locally.</p>
+        <div class="actions"><a class="button primary" href="https://github.com/Abomination81/amazon-public-fetch-mcp/archive/refs/heads/main.zip">Download source <span>↓</span></a><a class="button" href="#install">Get connected <span>↗</span></a></div>
+        <p class="fine">Python 3.11+ <span>·</span> Mac / Windows / Linux <span>·</span> MIT license</p>
+      </div>
+      <div class="route-panel" aria-label="How requests travel from the bot through your PC to Amazon">
+        <div class="panel-bar"><span><i></i><i></i><i></i></span> LOCAL ROUTE / 01</div>
+        <div class="route-row"><span class="node-symbol">AI</span><div><small>01 / THE REQUEST</small><h2>Grok Bot</h2><p>Send a product URL or ASIN.</p></div></div>
+        <div class="connector"><span></span><p>Your existing computer connection</p></div>
+        <div class="route-row active"><span class="node-symbol">&gt;_</span><div><small>02 / YOUR MACHINE</small><h2>Your PC does the fetch.</h2><p>Local network or configured proxy.</p></div><span class="live-dot" aria-hidden="true"></span></div>
+        <div class="connector"><span></span><p>HTTPS / public product page</p></div>
+        <div class="route-row"><span class="node-symbol">↗</span><div><small>03 / THE SOURCE</small><h2>Amazon</h2><p>Public /dp/ pages. Fresh session.</p></div></div>
+        <div class="payload"><span>RETURN TO BOT</span><p>Title <b>·</b> ASIN <b>·</b> Price <b>·</b> Features</p></div>
+        <p class="diagram-note">Connection diagram. Access depends on Amazon.</p>
+      </div>
+    </section>
+    <div class="fact-strip" aria-label="Project features"><span>LOCAL STDIO MCP</span><span>NO API KEY</span><span>NO ACCOUNT LOGIN</span><span>NO PROJECT TELEMETRY</span></div>
+    <section id="route" class="section intro">
+      <div><p class="eyebrow">THE WHOLE IDEA</p><h2>Put the request<br>on your network.</h2></div>
+      <div><p class="section-lede">When a cloud bot cannot read a product page, let your connected computer make the request.</p><p>Install the connector on that computer. Your bot launches it through an existing computer connection, or a local MCP client runs it directly. Product details come back as structured data.</p><p>Have an HTTP(S) proxy running on your PC? Point the connector at it. Otherwise, it uses your normal internet connection. Amazon can still block either route.</p></div>
+    </section>
+    <section class="tools section">
+      <div class="section-title"><div><p class="eyebrow">SMALL TOOLBOX</p><h2>Three tools. One job.</h2></div><span class="mono muted">PUBLIC PRODUCT DATA</span></div>
+      <div class="tool-row"><span class="tool-number">01</span><code>amazon_product</code><p>Title, ASIN, visible price and up to eight feature bullets.</p><span class="tool-tag">START HERE</span></div>
+      <div class="tool-row"><span class="tool-number">02</span><code>amazon_fetch</code><p>Fetch status, engine, titles and size. Raw HTML when requested.</p></div>
+      <div class="tool-row"><span class="tool-number">03</span><code>health</code><p>Installed engines, proxy configuration and request limits.</p></div>
+    </section>
+    <section id="install" class="section">
+      <div class="section-title"><div><p class="eyebrow">RUN IT ON YOUR MACHINE</p><h2>Install. Connect. Fetch.</h2></div><a href="https://github.com/Abomination81/amazon-public-fetch-mcp#install">Full README ↗</a></div>
+      <p class="section-lede">Install Python 3.11 or newer. Download and unzip the source, then open a terminal in that folder.</p>
+      <div class="install-grid">
+        <article class="code-card"><header><span>01 / INSTALL</span><h3>macOS &amp; Linux</h3></header><pre><code>python3 -m venv .venv
+.venv/bin/python -m pip install .
+.venv/bin/python -m mcp_server</code></pre><p>The final command starts the local stdio server. It waits for an MCP client; it is not an interactive prompt.</p></article>
+        <article class="code-card"><header><span>01 / INSTALL</span><h3>Windows PowerShell</h3></header><pre><code>py -3 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install .
+.\.venv\Scripts\python.exe -m mcp_server</code></pre><p>No virtual-environment activation is needed. Use this Python executable in your client's configuration.</p></article>
+      </div>
+      <article class="connect-card"><div><p class="eyebrow">02 / CONNECT THE BOT</p><h3>Use your existing<br>computer connection.</h3><p>Tell Grok Bot to run this on the connected PC. If the client supports local stdio MCP, configure its executable and arguments as shown.</p></div><div><p class="code-label">GENERIC MCP CONFIG · REPLACE THE LOCAL PATH</p><pre><code>{
+  "mcpServers": {
+    "amazon-public-fetch": {
+      "command": "/absolute/path/.venv/bin/python",
+      "args": ["-m", "mcp_server"]
+    }
+  }
+}</code></pre><p class="fine">Windows: use the absolute path to <code>.venv\Scripts\python.exe</code>. Configuration format depends on your client.</p></div></article>
+      <div class="prompt-card"><span class="eyebrow">03 / ASK FOR THE PRODUCT</span><blockquote>“Use amazon_product on my connected computer to read this Amazon product URL. Return the title, price and features. Tell me if the request is blocked.”</blockquote></div>
+    </section>
+    <section class="section proxy-section"><div><p class="eyebrow">ALREADY HAVE A LOCAL PROXY?</p><h2>Bring your own route.</h2><p>Set <code>AMAZON_FETCH_PROXY</code> in the server's environment. The address below is an example of a proxy already running on your computer.</p><p>Without a proxy variable, the connector uses your normal network. System and browser proxy settings are not detected automatically.</p></div><div class="code-card"><header><span>OPTIONAL / MACOS &amp; LINUX EXAMPLE</span><h3>Point at your local proxy.</h3></header><pre><code>AMAZON_FETCH_PROXY=http://127.0.0.1:8080 \
+  .venv/bin/python -m mcp_server</code></pre><p>For Windows and client <code>env</code> setup, see the <a href="https://github.com/Abomination81/amazon-public-fetch-mcp#your-network-or-your-proxy">proxy instructions →</a>.</p></div></section>
+    <section class="section limits"><p class="eyebrow">KNOW WHAT YOU'RE RUNNING</p><h2>Local. Small. Specific.</h2><div class="limits-grid"><div><h3>Public product pages</h3><p>Amazon US, UK, Canada, Germany and Japan. Full HTTPS product URLs or a 10-character ASIN. Tracking parameters are removed.</p></div><div><h3>Your connection stays yours</h3><p>No API key, project analytics or imported browser cookies. Amazon sees the egress IP. Your proxy and MCP client can retain their own logs.</p></div><div><h3>Blocks are still blocks</h3><p>No login, CAPTCHA solving or promise of access. Rate limits stop the fetch. This connector is not an anonymity tool.</p></div></div><p class="boundary-note">GitHub hosts this page and the source. The connector runs on your PC. It does not create a remote computer connection or a public proxy service. <a href="https://github.com/Abomination81/amazon-public-fetch-mcp/blob/main/SECURITY.md">Read the security model ↗</a></p></section>
+    <section class="closing"><img src="assets/mark.svg" width="64" height="64" alt=""><div><p class="eyebrow">BUILT BY ABOMINATION81</p><h2>Let your PC do the fetching.</h2></div><a class="button primary" href="https://github.com/Abomination81/amazon-public-fetch-mcp">Get it on GitHub ↗</a></section>
+  </main>
+  <footer><p>AMAZON PUBLIC FETCH <span class="green">/ MCP</span><small>Independent project. Not affiliated with Amazon or xAI.</small></p><nav aria-label="Footer"><a href="https://abomination81.com/">Abomination81</a><a href="https://x.com/Abomination81">X ↗</a><a href="https://github.com/Abomination81/amazon-public-fetch-mcp/blob/main/LICENSE">MIT</a></nav></footer>
+</div>
+</body>
+</html>
